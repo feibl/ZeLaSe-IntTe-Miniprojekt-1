@@ -1,7 +1,9 @@
 package chatlobby;
 
+import java.io.Serializable;
 
-public class Chat {
+
+public class Chat implements Serializable{
 	private String theme;
 	public String getTheme() {
 		return theme;
