@@ -1,5 +1,6 @@
 package chatlobby;
 
+
 public class Chat {
 	private String theme;
 	public String getTheme() {
@@ -7,5 +8,10 @@ public class Chat {
 	}
 	public void setTheme(String theme) {
 		this.theme = theme;
+	}
+
+	@Override
+	public String toString() {
+		return theme;
 	}
 }

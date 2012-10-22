@@ -25,5 +25,10 @@
 			<value></value>
 		</managed-property>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>chatManagerBean</managed-bean-name>
+		<managed-bean-class>chatlobby.ChatManagerBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>

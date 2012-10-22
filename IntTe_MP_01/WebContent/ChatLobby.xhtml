@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	      xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+
+	<h1>Chat Lobby</h1>
+	Willkommen in der ChatLobby! Gegenwärtig sind
+	<h:outputLabel value="#{chatManagerBean.numberOfChats}"></h:outputLabel>
+	 <h:form name="userform">
+	 Chats im	Gange.<br />
+	 Login:<br />
+	 Username:
+		<h:inputText id="username" value="#{userBean.username}"></h:inputText><br />
+	 Passwort:<h:inputSecret value="#{userBean.password}" id="password"></h:inputSecret> <br />
+	 Oder <a href="#">registrieren</a>.
+	 	</h:form>
+	 	<h:form name="chatform">
+	 	... und erzeuge einen neuen Chat mit Namen: <h:inputText id="newchatname" value="#{chat.theme}"></h:inputText>
+		<h:commandButton action="#{chatManagerBean.createNewChat(chat.theme)}" value="neu">
+			
+		</h:commandButton>
+	</h:form>
+	
+	
+	<h:form name="chatchoiceform">
+	 	oder wähle einen Chat aus:
+		<p:selectOneListbox id="scroll" value="#{chatManagerBean.selectedChatRoom}"
+             style="height:100px">
+            <f:selectItems value="#{chatManagerBean.chatrooms}"
+                var="chat" itemLabel="#{chat.theme}" itemValue="#{chat}"  />
+        	</p:selectOneListbox>
+		<h:commandButton>
+		</h:commandButton>
+	</h:form>
+</h:body>
+
+</html>
