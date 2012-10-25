@@ -6,22 +6,10 @@ import java.util.*;
 public class UserManager {
 	protected Map<String, User> users = new Hashtable<String, User>();
 
-	protected String userFilename = "users.ser";
 
-	protected File userFile;
 
 	public UserManager() {
-		userFile = new File(userFilename);
-		if (userFile.exists()) {
-			try {
-				FileInputStream fileIn = new FileInputStream(userFile);
-				ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-				users = (Map<String, User>) objectIn.readObject();
-				objectIn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	public boolean register(RegistrationFormular formular) throws UserException {
@@ -37,7 +25,7 @@ public class UserManager {
 		
 		if (user.checkEntries()) { // wirft UserException bei Fehler
 			users.put(user.getName(), user);
-			save();
+			
 			return true;
 		}
 		return false;
@@ -55,15 +43,5 @@ public class UserManager {
 		throw new UserException();
 	}
 
-	public void save() {
-		try {
-			FileOutputStream fileOut = new FileOutputStream(userFile);
-			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-			objectOut.writeObject(users);
-			objectOut.flush();
-			objectOut.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
