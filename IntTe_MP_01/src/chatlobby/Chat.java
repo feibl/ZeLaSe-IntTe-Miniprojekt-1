@@ -16,4 +16,9 @@ public class Chat implements Serializable{
 	public String toString() {
 		return theme;
 	}
+	
+	public String enter(User user){
+		
+		return "<script>alert('not logged in');</script>";
+	}
 }

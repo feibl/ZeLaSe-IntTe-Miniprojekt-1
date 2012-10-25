@@ -18,10 +18,6 @@ public class ChatManagerBean {
 
 	protected Map<String, Chat> chatrooms = new Hashtable<String, Chat>();
 
-	protected String chatFilename = "chatrooms.ser";
-
-	protected File chatFile;
-
 	public Chat getSelectedChatRoom() {
 		return selectedChatRoom;
 	}
@@ -31,17 +27,7 @@ public class ChatManagerBean {
 	}
 
 	public ChatManagerBean() {
-		chatFile = new File(chatFilename);
-		if (chatFile.exists()) {
-			try {
-				FileInputStream fileIn = new FileInputStream(chatFile);
-				ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-				chatrooms = (Hashtable<String, Chat>) objectIn.readObject();
-				objectIn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	public int getNumberOfChats() {
@@ -65,19 +51,9 @@ public class ChatManagerBean {
 		newChat.setTheme(name);
 		chatrooms.put(name, new Chat());
 
-		save();
+		
 	}
 
-	public void save() {
-		try {
-			FileOutputStream fileOut = new FileOutputStream(chatFile);
-			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
-			objectOut.writeObject(chatrooms);
-			objectOut.flush();
-			objectOut.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 }
