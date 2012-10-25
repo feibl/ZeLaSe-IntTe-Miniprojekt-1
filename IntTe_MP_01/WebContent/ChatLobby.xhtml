@@ -31,10 +31,10 @@
 	
 	<h:form name="chatchoiceform">
 	 	oder wähle einen Chat aus:
-		<h:selectOneListbox id="scroll" styleClass="selectOneListbox" value="#{chatManagerBean.selectedChatRoom}" style="width:100%">
+		<p:selectOneListbox id="scroll" styleClass="selectOneListbox" value="#{chatManagerBean.selectedChatRoom}" style="width:100%">
             <f:selectItems value="#{chatManagerBean.chatrooms}"
                 var="chat" itemLabel="#{chat.theme}" itemValue="#{chat}"  />
-        </h:selectOneListbox>
+        </p:selectOneListbox>
 		<h:commandButton value="beitreten"></h:commandButton>
 	</h:form>
 </h:body>
