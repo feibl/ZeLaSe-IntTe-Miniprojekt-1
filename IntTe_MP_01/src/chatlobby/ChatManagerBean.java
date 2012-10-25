@@ -18,7 +18,7 @@ public class ChatManagerBean {
 
 	protected Map<String, Chat> chatrooms = new Hashtable<String, Chat>();
 
-	protected String chatFilename = "/home/feibl/temp/chatrooms.ser";
+	protected String chatFilename = "chatrooms.ser";
 
 	protected File chatFile;
 
