@@ -30,5 +30,25 @@
 		<managed-bean-class>chatlobby.ChatManagerBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>userManager</managed-bean-name>
+		<managed-bean-class>chatlobby.UserManager</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>password</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+		<managed-property>
+			<property-name>pw_verification</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+		<managed-property>
+			<property-name>username</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
+	</managed-bean>
 
 </faces-config>
