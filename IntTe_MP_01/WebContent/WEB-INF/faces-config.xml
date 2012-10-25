@@ -14,6 +14,11 @@
 			<property-class>java.lang.String</property-class>
 			<value></value>
 		</managed-property>
+		<managed-property>
+			<property-name>loggedIn</property-name>
+			<property-class>boolean</property-class>
+			<value></value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>chat</managed-bean-name>

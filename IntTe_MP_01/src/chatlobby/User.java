@@ -6,6 +6,7 @@ public class User implements Serializable{
 	private String name;
 	private String password;
 	private String pwVerification;
+	private boolean loggedIn;
 	
 	public String getName() {
 		return name;
@@ -34,5 +35,11 @@ public class User implements Serializable{
 		if (name == null || name.equals(""))
 			throw new UserException();
 		return true;
+	}
+	public boolean getLoggedIn() {
+		return loggedIn;
+	}
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 }
