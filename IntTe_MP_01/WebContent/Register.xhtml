@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	      xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<head>
+<script type="text/javascript">
+function validateRegistrationForm(f)
+{
+    if (jQuery.trim(f.username.value).length == 0) {
+        alert("Please, fill the Login name field");
+        f.username.focus();
+
+        return false;
+    }
+
+    if (f.password.value == "") {
+        alert("Please, fill the Password field");
+        f.password.focus();
+
+        return false;
+    }
+
+    if (f.pw_verification.value == "") {
+        alert("Please, fill the Confirmation Password field");
+        f.password_confirm.focus();
+
+        return false;
+    }
+
+    if (f.password.value != f.pw_verification.value) {
+        alert("The confirmation password doesn't match.");
+        return false;
+    }
+
+    return true;
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/chatlobby" method="post" onsubmit="return validateRegistrationForm(this);">
+	<table border="0">
+		
+		<tr><td>Username</td>
+			<td><input type="text" name="username" size="30" maxlength = "60"/></td>
+		</tr>
+		<tr><td>Password</td>
+			<td><input type="password" name="password" size="30" maxlength = "60"/></td>
+		</tr>
+		<tr><td>Verify Password</td>
+			<td><input type="password" name="pw_verification" size="30" maxlength = "60"/></td>
+		</tr>
+		<tr><td></td>
+			<td><input type="submit" value="submit" name="submit"></input></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
