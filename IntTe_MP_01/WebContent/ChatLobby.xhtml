@@ -35,7 +35,7 @@
             <f:selectItems value="#{chatManagerBean.chatrooms}"
                 var="chat" itemLabel="#{chat.theme}" itemValue="#{chat}"  />
         </p:selectOneListbox>
-		<h:commandButton value="beitreten"></h:commandButton>
+		<h:commandButton value="beitreten" action="#{chat.enter(userBean)}"></h:commandButton>
 	</h:form>
 </h:body>
 
