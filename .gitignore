@@ -4,6 +4,8 @@
 *.jar
 *.war
 *.ear
+*.DS_Store
 
 .classpath
 .project
+IntTe_MP_01/.DS_Store
