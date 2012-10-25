@@ -34,6 +34,11 @@
 		<managed-bean-name>userManager</managed-bean-name>
 		<managed-bean-class>chatlobby.UserManager</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>registrationFormular</managed-bean-name>
+		<managed-bean-class>chatlobby.RegistrationFormular</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
 		<managed-property>
 			<property-name>password</property-name>
 			<property-class>java.lang.String</property-class>

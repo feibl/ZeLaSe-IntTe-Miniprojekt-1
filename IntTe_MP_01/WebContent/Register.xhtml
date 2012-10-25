@@ -45,16 +45,16 @@ function validateRegistrationForm(f)
 	<table border="0">
 		
 		<tr><td>Username</td>
-			<td><input type="text" value="#{userManager.username}" size="30" maxlength = "60"/></td>
+			<td><h:inputText type="text" value="#{registrationFormular.username}" size="30" maxlength = "60"/></td>
 		</tr>
 		<tr><td>Password</td>
-			<td><input type="password" value="#{userManager.password}" size="30" maxlength = "60"/></td>
+			<td><h:inputSecret type="password" value="#{registrationFormular.password}" size="30" maxlength = "60"/></td>
 		</tr>
 		<tr><td>Verify Password</td>
-			<td><input type="password" value="#{userManager.pw_verification}" size="30" maxlength = "60"/></td>
+			<td><h:inputSecret type="password" value="#{registrationFormular.pw_verification}" size="30" maxlength = "60"/></td>
 		</tr>
 		<tr><td></td>
-			<td><h:commandButton action="#{userManager.register()}" value="register"></h:commandButton></td>
+			<td><h:commandButton action="#{userManager.register(registrationFormular)}" value="register"></h:commandButton></td>
 		</tr>
 	</table>
 </h:form>

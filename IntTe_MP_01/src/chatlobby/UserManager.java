@@ -9,10 +9,6 @@ public class UserManager {
 	protected String userFilename = "users.ser";
 
 	protected File userFile;
-	
-	private String username;
-	private String password;
-	private String pw_verification;
 
 	public UserManager() {
 		userFile = new File(userFilename);
@@ -28,14 +24,13 @@ public class UserManager {
 		}
 	}
 
-	public boolean register() throws UserException {
-		System.out.println("register");
-		if(!pw_verification.equals(password)) {
+	public boolean register(RegistrationFormular formular) throws UserException {
+		if(!formular.getPw_verification().equals(formular.getPassword())) {
 			throw new UserException();
 		}
 		User user = new User();
-		user.setName(username);
-		user.setPassword(password);
+		user.setName(formular.getUsername());
+		user.setPassword(formular.getPassword());
 		if (users.get(user.getName()) != null) { // User existiert bereits
 			throw new UserException();
 		}
@@ -70,30 +65,5 @@ public class UserManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public String getUsername() {
-		System.out.println("hallo");
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPw_verification() {
-		return pw_verification;
-	}
-
-	public void setPw_verification(String pw_verification) {
-		this.pw_verification = pw_verification;
 	}
 }
