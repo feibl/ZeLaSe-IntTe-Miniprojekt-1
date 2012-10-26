@@ -5,8 +5,13 @@ import java.io.Serializable;
 public class User implements Serializable{
 	private String name;
 	private String password;
-	private String pwVerification;
-	private boolean loggedIn;
+	private Boolean loggedIn;
+	
+	public User() {
+		name = "";
+		password = "";
+		loggedIn = false;
+	}
 	
 	public String getName() {
 		return name;
@@ -36,10 +41,10 @@ public class User implements Serializable{
 			throw new UserException();
 		return true;
 	}
-	public boolean getLoggedIn() {
+	public Boolean getLoggedIn() {
 		return loggedIn;
 	}
-	public void setLoggedIn(boolean loggedIn) {
+	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
 	}
 }
