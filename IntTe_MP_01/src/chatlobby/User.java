@@ -6,6 +6,7 @@ public class User implements Serializable{
 	private String name;
 	private String password;
 	private Boolean loggedIn;
+	private Chat selectedChat;
 	
 	public User() {
 		name = "";
@@ -13,6 +14,25 @@ public class User implements Serializable{
 		loggedIn = false;
 	}
 	
+	public Chat getSelectedChat() {
+		return selectedChat;
+	}
+	public void setSelectedChat(Chat selectedChat) {
+		this.selectedChat = selectedChat;
+	}
+	
+	public String tryToEnterSelectedChat(){
+		System.out.println("evalute if allowed to enter room");
+		if(loggedIn){
+			if(selectedChat!=null){
+				selectedChat.enter(this);
+				return "chat";
+			}else{
+				System.out.println("select chat first");
+			}
+		}
+		return"error";
+	}
 	public String getName() {
 		return name;
 	}

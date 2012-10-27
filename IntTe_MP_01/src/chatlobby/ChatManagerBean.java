@@ -14,17 +14,10 @@ import java.util.Map;
 import javax.faces.context.FacesContext;
 
 public class ChatManagerBean {
-	public Chat selectedChatRoom;
-
 	protected Map<String, Chat> chatrooms = new Hashtable<String, Chat>();
 
-	public Chat getSelectedChatRoom() {
-		return selectedChatRoom;
-	}
 
-	public void setSelectedChatRoom(Chat selectedChatroom) {
-		this.selectedChatRoom = selectedChatroom;
-	}
+	
 
 	public ChatManagerBean() {
 		

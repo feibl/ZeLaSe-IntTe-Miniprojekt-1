@@ -17,7 +17,7 @@
 		<managed-property>
 			<property-name>loggedIn</property-name>
 			<property-class>java.lang.Boolean</property-class>
-			<value></value>
+			<value>false</value>
 		</managed-property>
 	</managed-bean>
 	<managed-bean>

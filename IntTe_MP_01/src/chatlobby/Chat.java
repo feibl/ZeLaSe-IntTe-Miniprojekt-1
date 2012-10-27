@@ -21,4 +21,8 @@ public class Chat implements Serializable{
 		
 		return "<script>alert('not logged in');</script>";
 	}
+	
+	public String test(){
+		return "ok";
+	}
 }
