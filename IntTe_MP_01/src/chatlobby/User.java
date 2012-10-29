@@ -22,12 +22,10 @@ public class User implements Serializable{
 	}
 	
 	public String tryToEnterSelectedChat(){
-		System.out.println("evalute if allowed to enter room");
 		if(loggedIn){
 			if(selectedChat!=null){
 				selectedChat.enter(this);
-				System.out.println("nutte");
-				return "chat.xhtml";
+				return "Chat.xhtml";
 			}else{
 				System.out.println("select chat first");
 			}
