@@ -33,6 +33,7 @@ public class User implements Serializable{
 		}
 		return"error";
 	}
+
 	public String getName() {
 		return name;
 	}
@@ -66,5 +67,10 @@ public class User implements Serializable{
 	}
 	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }

@@ -7,6 +7,16 @@
 <h:head>
 </h:head>
 <body>
-figg dich
+	
+
+	<h:form name="chatForm">
+		<h:outputText value="#{user.selectedChat.getChatMessages()}" escape="false" id="chatMessagesOut"></h:outputText>
+	<h:inputText value="#{chatForm.message}"></h:inputText>
+<h:commandButton value="Schreiben" action="#{user.selectedChat.postMessage(chatForm.message,user)}" ></h:commandButton>
+<h:commandButton value="verlassen" action="#{user.selectedChat.leave(user)}" ></h:commandButton>
+
+	<p:poll interval="1"   
+            listener="#{user.selectedChat.getChatMessages()}" update="chatMessagesOut" />
+</h:form>
 </body>
 </html>

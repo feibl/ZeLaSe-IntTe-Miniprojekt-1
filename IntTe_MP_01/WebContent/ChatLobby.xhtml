@@ -34,9 +34,10 @@
 	 	oder wähle einen Chat aus:
 		<p:selectOneListbox  id="scroll" styleClass="selectOneListbox" value="#{user.selectedChat}" style="width:100%">
             <f:selectItems value="#{chatManagerBean.chatrooms}"
-           itemLabel="#{chat.topic}" itemValue="#{chat}"  />
+           itemLabel="#{chat.toString()}" itemValue="#{chat}"  />
         </p:selectOneListbox>
 		<h:commandButton value="beitreten" action="#{user.tryToEnterSelectedChat}" ></h:commandButton>
+		
 	</h:form>
 </h:body>
 
