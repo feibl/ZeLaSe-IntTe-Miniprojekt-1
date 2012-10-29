@@ -1,7 +1,7 @@
 package chatlobby;
 
-import java.io.*;
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Map;
 
 public class UserManager {
 	protected Map<String, User> users = new Hashtable<String, User>();
