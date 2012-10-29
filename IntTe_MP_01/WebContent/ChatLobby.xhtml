@@ -9,36 +9,46 @@
 <title>Insert title here</title>
 </h:head>
 <h:body>
-
+	<h:form>
+	<h:commandButton value="deutsch" action="#{language.setLocaleToDe()}"></h:commandButton>
+	<h:commandButton value="english" action="#{language.setLocaleToEn()}"></h:commandButton>
+	</h:form>
+	
+	
 	<h1>Chat Lobby</h1>
-	Willkommen in der ChatLobby! Gegenwärtig sind
-	<h:outputLabel value="#{chatManagerBean.numberOfChats}"></h:outputLabel>
-	 <h:form name="userform">
-	 Chats im	Gange.<br />
-	 Login:<br />
-	 Username:
+	<h:outputFormat value="#{msg.welcome}">
+		<f:param value="#{chatManagerBean.numberOfChats}"></f:param>
+	</h:outputFormat>
+	
+	<h:form>
+		<h:outputLabel value="login:" rendered="#{!user.loggedIn}"></h:outputLabel><br/>
+		<h:outputLabel value="#{msg.username}" rendered="#{!user.loggedIn}"></h:outputLabel><br/>
 		<h:inputText rendered="#{!user.loggedIn}" id="username" value="#{user.name}"></h:inputText><br />
-	 Passwort:<h:inputSecret rendered="#{!user.loggedIn}" value="#{user.password}" id="password"></h:inputSecret> <br />
-	 <h:commandButton rendered="#{!user.loggedIn}" action="#{userManager.login(user)}" value="login"></h:commandButton>
-	 Oder <a href="/IntTe_MP_01/Register.xhtml">registrieren</a>.
-	 	</h:form>
-	 	<h:form name="chatform">
-	 	... und erzeuge einen neuen Chat mit Namen: <h:inputText id="newchatname" value="#{chat.topic}"></h:inputText>
-		<h:commandButton action="#{chatManagerBean.createNewChat(chat.topic)}" value="neu">
+		<h:outputLabel value="#{msg.password}" rendered="#{!user.loggedIn}"></h:outputLabel><br/>
+		<h:inputSecret rendered="#{!user.loggedIn}" value="#{user.password}" id="password"></h:inputSecret> <br />
+		 <h:commandButton rendered="#{!user.loggedIn}" action="#{userManager.login(user)}" value="#{msg.loginbutton}"></h:commandButton>
+		 <h:outputLabel value="#{msg.register}" escape="false"></h:outputLabel>
+		 
+	 </h:form>
+	 <h:form>
+	 	<h:outputLabel value="#{msg.createNewChat}"></h:outputLabel> <h:inputText id="newchatname" value="#{chat.topic}"></h:inputText>
+		<h:commandButton action="#{chatManagerBean.createNewChat(chat.topic)}" value="#{msg.createNewChatButton}">
 			
 		</h:commandButton>
 	</h:form>
 	
 	
 	<h:form name="chatchoiceform">
-	 	oder wähle einen Chat aus:
+	 	<h:outputLabel value="#{msg.chatchoice}"></h:outputLabel>
 		<p:selectOneListbox  id="scroll" styleClass="selectOneListbox" value="#{user.selectedChat}" style="width:100%">
             <f:selectItems value="#{chatManagerBean.chatrooms}"
            itemLabel="#{chat.toString()}" itemValue="#{chat}"  />
         </p:selectOneListbox>
-		<h:commandButton value="beitreten" action="#{user.tryToEnterSelectedChat}" ></h:commandButton>
-		
+
+		<h:commandButton value="#{msg.chatbutton}" action="#{user.tryToEnterSelectedChat}" ></h:commandButton>
 	</h:form>
+	
+	
 </h:body>
 
 </html>
