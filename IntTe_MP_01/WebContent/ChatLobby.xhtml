@@ -30,7 +30,10 @@
 		 <h:outputLabel value="#{msg.register}" escape="false"></h:outputLabel>		 
 	 </h:form>
 	 <h:form>
-	 	<h:outputLabel value="#{msg.createNewChat}"></h:outputLabel> <h:inputText id="newchatname" value="#{chat.topic}"></h:inputText>
+	 	<h:outputLabel value="#{msg.createNewChat}"></h:outputLabel>
+	 	<h:inputText id="newchatname" value="#{chat.topic}" validator="#{chatManagerBean.validateChatName}">
+	 	</h:inputText>
+	 	<h:message for="newchatname" style="color:red" />
 		<h:commandButton action="#{chatManagerBean.createNewChat(chat.topic)}" value="#{msg.createNewChatButton}">
 			
 		</h:commandButton>
