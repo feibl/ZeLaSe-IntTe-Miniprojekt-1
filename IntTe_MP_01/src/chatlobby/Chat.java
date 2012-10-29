@@ -5,17 +5,17 @@ import java.io.Serializable;
 
 public class Chat implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private String theme;
-	public String getTheme() {
-		return theme;
+	private String topic;
+	public String getTopic() {
+		return topic;
 	}
-	public void setTheme(String theme) {
-		this.theme = theme;
+	public void setTopic(String topic) {
+		this.topic = topic;
 	}
 
 	@Override
 	public String toString() {
-		return theme;
+		return topic;
 	}
 	
 	public String enter(User user){

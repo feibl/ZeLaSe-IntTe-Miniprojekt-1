@@ -31,7 +31,7 @@ public class ChatManagerBean {
 			throw new ChatException();
 		}
 		Chat newChat = new Chat();
-		newChat.setTheme(name);
+		newChat.setTopic(name);
 		chatrooms.put(name, new Chat());
 
 		

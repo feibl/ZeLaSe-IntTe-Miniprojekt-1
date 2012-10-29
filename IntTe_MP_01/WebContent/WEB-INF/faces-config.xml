@@ -24,11 +24,6 @@
 		<managed-bean-name>chat</managed-bean-name>
 		<managed-bean-class>chatlobby.Chat</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
-		<managed-property>
-			<property-name>theme</property-name>
-			<property-class>java.lang.String</property-class>
-			<value></value>
-		</managed-property>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>chatManagerBean</managed-bean-name>

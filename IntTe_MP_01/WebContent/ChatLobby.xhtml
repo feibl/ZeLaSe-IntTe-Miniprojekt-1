@@ -23,8 +23,8 @@
 	 Oder <a href="/IntTe_MP_01/Register.xhtml">registrieren</a>.
 	 	</h:form>
 	 	<h:form name="chatform">
-	 	... und erzeuge einen neuen Chat mit Namen: <h:inputText id="newchatname" value="#{chat.theme}"></h:inputText>
-		<h:commandButton action="#{chatManagerBean.createNewChat(chat.theme)}" value="neu">
+	 	... und erzeuge einen neuen Chat mit Namen: <h:inputText id="newchatname" value="#{chat.topic}"></h:inputText>
+		<h:commandButton action="#{chatManagerBean.createNewChat(chat.topic)}" value="neu">
 			
 		</h:commandButton>
 	</h:form>
@@ -34,7 +34,7 @@
 	 	oder wähle einen Chat aus:
 		<p:selectOneListbox  id="scroll" styleClass="selectOneListbox" value="#{user.selectedChat}" style="width:100%">
             <f:selectItems value="#{chatManagerBean.chatrooms}"
-           itemLabel="#{chat.theme}" itemValue="#{chat}"  />
+           itemLabel="#{chat.topic}" itemValue="#{chat}"  />
         </p:selectOneListbox>
 		<h:commandButton value="beitreten" action="#{user.tryToEnterSelectedChat}" ></h:commandButton>
 	</h:form>
