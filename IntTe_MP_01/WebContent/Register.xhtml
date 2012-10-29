@@ -6,36 +6,15 @@
         xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 <head>
 <script type="text/javascript">
-function validateRegistrationForm(f)
-{
-    if (jQuery.trim(f.username.value).length == 0) {
-        alert("Please, fill the Login name field");
-        f.username.focus();
+	   function checkPassword(p1, p2)
+	   {
+	     if (p1.value != p2.value) {
+	       p2.setCustomValidity('Passwords do not match');
+	     } else {
+	       p2.setCustomValidity('');
+	     }
+	   }
 
-        return false;
-    }
-
-    if (f.password.value == "") {
-        alert("Please, fill the Password field");
-        f.password.focus();
-
-        return false;
-    }
-
-    if (f.pw_verification.value == "") {
-        alert("Please, fill the Confirmation Password field");
-        f.password_confirm.focus();
-
-        return false;
-    }
-
-    if (f.password.value != f.pw_verification.value) {
-        alert("The confirmation password doesn't match.");
-        return false;
-    }
-
-    return true;
-}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
@@ -45,19 +24,49 @@ function validateRegistrationForm(f)
 	<table border="0">
 		
 		<tr><td>Username</td>
-			<td><h:inputText type="text" value="#{registrationFormular.username}" size="30" maxlength = "60"/></td>
+			<td>
+			<h:inputText type="text" id="name" size="30" maxlength = "60"
+			value="#{user.name}"
+			required ="true"
+			requiredMessage="Please enter a Username"
+			validator="#{userManager.validateUserName}">
+			</h:inputText>
+			</td>
+			<td><h:message for="name" style="color:red" /></td>
 		</tr>
 		<tr><td>Password</td>
-			<td><h:inputSecret type="password" value="#{registrationFormular.password}" size="30" maxlength = "60"/></td>
+			<td>
+			<h:inputSecret type="password" binding="#{passwordComponent}" id="password" size="30" maxlength = "60"
+			value="#{user.password}"
+			required ="true"
+			requiredMessage="Please enter a Password">
+			</h:inputSecret>
+			</td>
+			<td><h:message for="password" style="color:red" /></td>
 		</tr>
 		<tr><td>Verify Password</td>
-			<td><h:inputSecret type="password" value="#{registrationFormular.pw_verification}" size="30" maxlength = "60"/></td>
+			<td>			
+			<h:inputSecret type="password" id="pw_verification" size="30" maxlength = "60"
+			required ="true"
+			requiredMessage="Please enter a Password Verification">
+				<f:validator validatorId="confirmPasswordValidator" />
+    			<f:attribute name="passwordComponent" value="#{passwordComponent}" />
+			</h:inputSecret>
+			</td>
+			<td><h:message for="pw_verification" style="color:red" /></td>
 		</tr>
+
 		<tr><td></td>
-			<td><h:commandButton action="#{userManager.register(registrationFormular)}" value="register"></h:commandButton></td>
+			<td>
+			<h:commandButton id="register" 
+			action="#{userManager.register(user)}" 
+			value="register">
+			</h:commandButton>
+			</td>
 		</tr>
 	</table>
 </h:form>
+<a href="/IntTe_MP_01/ChatLobby.xhtml">back</a>
 
 </body>
 </html>

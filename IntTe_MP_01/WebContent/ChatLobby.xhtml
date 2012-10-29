@@ -13,19 +13,19 @@
 	<h1>Chat Lobby</h1>
 	Willkommen in der ChatLobby! Gegenwärtig sind
 	<h:outputLabel value="#{chatManagerBean.numberOfChats}"></h:outputLabel>
-	 <h:form name="userform">
 	 Chats im	Gange.<br />
+	 <h:form name="userform">
 	 Login:<br />
 	 Username:
 		<h:inputText rendered="#{!user.loggedIn}" id="username" value="#{user.name}"></h:inputText><br />
 	 Passwort:<h:inputSecret rendered="#{!user.loggedIn}" value="#{user.password}" id="password"></h:inputSecret> <br />
 	 <h:commandButton rendered="#{!user.loggedIn}" action="#{userManager.login(user)}" value="login"></h:commandButton>
 	 Oder <a href="/IntTe_MP_01/Register.xhtml">registrieren</a>.
-	 	</h:form>
-	 	<h:form name="chatform">
-	 	... und erzeuge einen neuen Chat mit Namen: <h:inputText id="newchatname" value="#{chat.theme}"></h:inputText>
+	 </h:form>
+	 <h:form name="chatform">
+	 	... und erzeuge einen neuen Chat mit Namen: 
+	 	<h:inputText id="newchatname" value="#{chat.theme}"></h:inputText>
 		<h:commandButton action="#{chatManagerBean.createNewChat(chat.theme)}" value="neu">
-			
 		</h:commandButton>
 	</h:form>
 	
