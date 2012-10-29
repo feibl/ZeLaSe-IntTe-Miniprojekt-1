@@ -1,30 +1,13 @@
 package chatlobby;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 import java.util.Map;
 
-import javax.faces.context.FacesContext;
-
 public class ChatManagerBean {
-	public Chat selectedChatRoom;
-
 	protected Map<String, Chat> chatrooms = new Hashtable<String, Chat>();
 
-	public Chat getSelectedChatRoom() {
-		return selectedChatRoom;
-	}
 
-	public void setSelectedChatRoom(Chat selectedChatroom) {
-		this.selectedChatRoom = selectedChatroom;
-	}
+	
 
 	public ChatManagerBean() {
 		
@@ -48,7 +31,7 @@ public class ChatManagerBean {
 			throw new ChatException();
 		}
 		Chat newChat = new Chat();
-		newChat.setTheme(name);
+		newChat.setTopic(name);
 		chatrooms.put(name, new Chat());
 
 		

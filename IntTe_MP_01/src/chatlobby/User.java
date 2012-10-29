@@ -3,9 +3,11 @@ package chatlobby;
 import java.io.Serializable;
 
 public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String password;
 	private Boolean loggedIn;
+	private Chat selectedChat;
 	
 	public User() {
 		name = "";
@@ -13,6 +15,25 @@ public class User implements Serializable{
 		loggedIn = false;
 	}
 	
+	public Chat getSelectedChat() {
+		return selectedChat;
+	}
+	public void setSelectedChat(Chat selectedChat) {
+		this.selectedChat = selectedChat;
+	}
+	
+	public String tryToEnterSelectedChat(){
+		if(loggedIn){
+			if(selectedChat!=null){
+				selectedChat.enter(this);
+				return "Chat.xhtml";
+			}else{
+				System.out.println("select chat first");
+			}
+		}
+		return"error";
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -46,5 +67,10 @@ public class User implements Serializable{
 	}
 	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }

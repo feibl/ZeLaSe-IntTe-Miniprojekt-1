@@ -1,19 +1,13 @@
 package chatlobby;
 
-import java.io.*;
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Map;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
-import javax.faces.validator.Validator;
-import javax.faces.validator.ValidatorException;
 
-@ManagedBean(name = "userManager")
-@ApplicationScoped
 public class UserManager {
 	protected Map<String, User> users = new Hashtable<String, User>();
 
@@ -29,7 +23,7 @@ public class UserManager {
 
 		if (user.checkEntries()) { // wirft UserException bei Fehler
 			users.put(user.getName(), user);
-			return "ChatLobby.xhtml?faces-redirect=true";
+			return "ChatLobby.xhtml";
 		}
 		return "Register.xhtml";
 	}
