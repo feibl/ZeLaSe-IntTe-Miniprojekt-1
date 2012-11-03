@@ -49,6 +49,11 @@
 		<managed-bean-name>chatForm</managed-bean-name>
 		<managed-bean-class>chatlobby.ChatForm</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>message</property-name>
+			<property-class>java.lang.String</property-class>
+			<value></value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
 	<managed-bean-name>language</managed-bean-name>
