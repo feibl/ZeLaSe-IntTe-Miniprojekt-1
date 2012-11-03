@@ -30,7 +30,7 @@ public class User implements Serializable{
 		if(loggedIn){
 			if(selectedChat!=null){
 				selectedChat.enter(this);
-				return "chat";
+				return "Chat.xhtml";
 			}else{
 				System.out.println("select chat first");
 			}
