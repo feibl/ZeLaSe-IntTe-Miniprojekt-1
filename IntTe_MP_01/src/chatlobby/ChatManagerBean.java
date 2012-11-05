@@ -28,14 +28,13 @@ public class ChatManagerBean {
 		this.chatrooms = chatrooms;
 	}
 
-	public void createNewChat(String name) throws ChatException {
-		if (chatrooms.get(name) != null) { // Chat existiert bereits
+	public void createNewChat(Chat chat) throws ChatException {
+		if (chatrooms.get(chat.getTopic()) != null) { // Chat existiert bereits
 			throw new ChatException();
 		}
 		Chat newChat = new Chat();
-		newChat.setTopic(name);
-		chatrooms.put(name, new Chat());
-
+		newChat.setTopic(chat.getTopic());
+		chatrooms.put(chat.getTopic(), newChat);
 	}
 
 	public void validateChatName(FacesContext context, UIComponent toValidate,
