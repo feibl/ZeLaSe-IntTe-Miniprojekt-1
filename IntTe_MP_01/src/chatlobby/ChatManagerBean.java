@@ -29,6 +29,9 @@ public class ChatManagerBean {
 	}
 
 	public void createNewChat(Chat chat) throws ChatException {
+		if(chat.getTopic().trim().equals("")){
+			return;
+		}
 		if (chatrooms.get(chat.getTopic()) != null) { // Chat existiert bereits
 			throw new ChatException();
 		}
