@@ -11,6 +11,7 @@
 
 </h:head>
 <h:body>
+<f:view locale="#{language.getLocal()}">
 	<h:form>
 	<div class="langDiv">
 	<h:commandButton value="deutsch" action="#{language.setLocaleToDe()}"></h:commandButton>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -60,6 +61,7 @@
 	</h:form>
 
 		 </div>	
+		 </f:view>
 </h:body>
 
 </html>

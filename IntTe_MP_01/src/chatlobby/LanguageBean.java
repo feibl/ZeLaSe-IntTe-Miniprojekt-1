@@ -19,5 +19,10 @@ public class LanguageBean implements Serializable {
 		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
 		viewRoot.setLocale(new Locale("de"));
 	}
+	
+	public String getLocal(){
+		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
+		return viewRoot.getLocale().toString();
+	}
 
 }
