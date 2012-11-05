@@ -30,11 +30,12 @@
 	<h:form rendered="#{!user.loggedIn}">
 		<h:outputLabel value="login:"></h:outputLabel><br/>
 		<h:outputLabel value="#{msg.username}"></h:outputLabel><br/>
-		<h:inputText id="username" value="#{user.name}"></h:inputText><br />
+		<h:inputText id="username" value="#{user.name}" 			required ="true"			requiredMessage="Please enter a Username"></h:inputText><br />
 		<h:outputLabel value="#{msg.password}"></h:outputLabel><br/>
-		<h:inputSecret value="#{user.password}" id="password"></h:inputSecret> <br />
+		<h:inputSecret value="#{user.loginPassword}" id="password" 			required ="true"			requiredMessage="Please enter a Password"></h:inputSecret> <br />
 		 <h:commandButton action="#{userManager.login(user)}" value="#{msg.loginbutton}"></h:commandButton>
-		 <h:outputLabel value="#{msg.register}" escape="false"></h:outputLabel>		 
+		 <h:outputLabel value="#{msg.register}" escape="false"></h:outputLabel>		
+		 <h:messages style="color:red" /> 
 	 </h:form>
 
 	 <h:form rendered="#{user.loggedIn}">

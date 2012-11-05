@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 public class UserManager {
 	protected Map<String, User> users = new Hashtable<String, User>();
@@ -32,17 +33,14 @@ public class UserManager {
 		return users.get(name) != null;
 	}
 
-	public void login(User user) throws UserException {
-		if ((user.getName() == null && user.getPassword() == null)
-				|| (user.getName() == "" && user.getPassword() == "")) {
-			throw new UserException();
-		}
-		if (users.get(user.getName()) != null
-				&& user.checkPassword(user.getPassword())) {
+	public String login(User user) throws UserException {
+		if (users.containsKey(user.getName()) && users.get(user.getName()).getPassword().equals(user.getLoginPassword()) ) {
 			user.setLoggedIn(true);
 			FacesContext.getCurrentInstance().getAttributes().put("user", user);
+			return "ChatLobby.xhtml";
 		} else {
-			throw new UserException();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Unknown login, try again"));
+			return null;
 		}
 
 	}

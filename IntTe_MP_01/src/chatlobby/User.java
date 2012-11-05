@@ -8,6 +8,14 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String password;
+	private String loginPassword;
+	public String getLoginPassword() {
+		return loginPassword;
+	}
+
+	public void setLoginPassword(String loginPassword) {
+		this.loginPassword = loginPassword;
+	}
 	private Boolean loggedIn;
 	private Chat selectedChat;
 	
