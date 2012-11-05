@@ -60,5 +60,9 @@
 	<managed-bean-class>chatlobby.LanguageBean</managed-bean-class>
 	<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<validator>
+		<validator-id>confirmPasswordValidator</validator-id>
+		<validator-class>chatlobby.ConfirmPasswordValidator</validator-class>
+	</validator>
 
 </faces-config>
