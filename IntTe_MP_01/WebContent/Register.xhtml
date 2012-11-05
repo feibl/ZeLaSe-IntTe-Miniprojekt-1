@@ -5,6 +5,7 @@
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 <head>
+<link rel="stylesheet" href="./style.css" type="text/css" />
 <script type="text/javascript">
 	   function checkPassword(p1, p2)
 	   {
@@ -21,6 +22,8 @@
 </head>
 <body>
 <h:form>
+<div class="loginDiv">
+<h1><h:outputFormat value="#{msg.registerTitle}"></h:outputFormat></h1>
 	<table border="0">
 		
 		<tr><td>Username</td>
@@ -65,8 +68,9 @@
 			</td>
 		</tr>
 	</table>
+	<a href="/IntTe_MP_01/ChatLobby.xhtml">back</a>
+	</div>
 </h:form>
-<a href="/IntTe_MP_01/ChatLobby.xhtml">back</a>
 
 </body>
 </html>

@@ -2,6 +2,8 @@ package chatlobby;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
+
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String name;
@@ -69,6 +71,10 @@ public class User implements Serializable{
 		this.loggedIn = loggedIn;
 	}
 	
+	public String logout(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "ChatLobby.xhtml?faces-redirect=true";
+	}
 	@Override
 	public String toString() {
 		return this.name;

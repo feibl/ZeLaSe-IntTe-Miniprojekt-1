@@ -1,5 +1,6 @@
 package chatlobby;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ChatMessage {
@@ -27,6 +28,8 @@ public class ChatMessage {
 
 	@Override
 	public String toString() {
-		return time + " &#60;" + user + "&#62;: " + message;
+		 SimpleDateFormat formater = new SimpleDateFormat();
+		 formater.applyPattern("dd.MM.yyyy 'um' hh:mm:ss" );
+		return "<strong>"+formater.format(time.getTime()) + " &#60;" + user + "&#62;:</strong> " + message;
 	}
 }
