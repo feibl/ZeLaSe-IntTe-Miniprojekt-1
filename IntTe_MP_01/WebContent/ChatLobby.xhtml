@@ -6,18 +6,24 @@
         xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>ChatLobby</title>
+<link rel="stylesheet" href="./style.css" type="text/css" />
+
 </h:head>
 <h:body>
 	<h:form>
-	<h:commandButton value="deutsch" action="#{language.setLocaleToDe()}"></h:commandButton>
+	<div class="langDiv">
+	<h:commandButton value="deutsch" action="#{language.setLocaleToDe()}"></h:commandButton>&nbsp;&nbsp;&nbsp;&nbsp;
 	<h:commandButton value="english" action="#{language.setLocaleToEn()}"></h:commandButton>
+	</div>
 	</h:form>
-	
-	
+<div class="loginDiv">
 	<h1>Chat Lobby</h1>
-	<h:outputFormat value="#{msg.welcome}">
+	<h:outputFormat value="#{msg.welcome}"  rendered="#{user.loggedIn}">
 		<f:param value="#{chatManagerBean.numberOfChats}"></f:param>
+	</h:outputFormat>
+	
+	<h:outputFormat value="#{msg.logInFirst}"  rendered="#{!user.loggedIn}">
 	</h:outputFormat>
 	
 	<h:form rendered="#{!user.loggedIn}">
@@ -29,10 +35,11 @@
 		 <h:commandButton action="#{userManager.login(user)}" value="#{msg.loginbutton}"></h:commandButton>
 		 <h:outputLabel value="#{msg.register}" escape="false"></h:outputLabel>		 
 	 </h:form>
-	 <h:form>
-	 	<h:outputLabel value="#{msg.createNewChat}"></h:outputLabel>
+
+	 <h:form rendered="#{user.loggedIn}">
+	 	<h:outputLabel value="#{msg.createNewChat}"></h:outputLabel><br />
 	 	<h:inputText id="newchatname" value="#{chat.topic}" validator="#{chatManagerBean.validateChatName}">
-	 	</h:inputText>
+	 	</h:inputText>&nbsp;&nbsp;&nbsp;
 	 	<h:message for="newchatname" style="color:red" />
 		<h:commandButton action="#{chatManagerBean.createNewChat(chat)}" value="#{msg.createNewChatButton}">
 			
@@ -40,15 +47,19 @@
 	</h:form>
 	
 	
-	<h:form name="chatchoiceform">
+	<h:form name="chatchoiceform"  rendered="#{user.loggedIn}">
 	 	<h:outputLabel value="#{msg.chatchoice}"></h:outputLabel>
-		<p:selectOneListbox  id="scroll" styleClass="selectOneListbox" value="#{user.selectedChat}" style="width:100%">
+		<p:selectOneListbox  id="scroll" styleClass="selectOneListbox" value="#{user.selectedChat}" style="width:95%;margin-bottom:10px;">
             <f:selectItems value="#{chatManagerBean.chatrooms}"
            itemLabel="#{chat.toString()}" itemValue="#{chat}"  />
         </p:selectOneListbox>
 
 		<h:commandButton value="#{msg.chatbutton}" action="#{user.tryToEnterSelectedChat}" ></h:commandButton>
+		<div style="float:right;margin-right:3%">
+		<h:commandButton action="#{user.logout}" value="Logout" ></h:commandButton></div>
 	</h:form>
+
+		 </div>	
 </h:body>
 
 </html>

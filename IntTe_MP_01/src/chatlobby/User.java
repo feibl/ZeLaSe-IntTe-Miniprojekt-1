@@ -2,11 +2,10 @@ package chatlobby;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
+
 public class User implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7454227339652264973L;
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String password;
 	private Boolean loggedIn;
@@ -26,7 +25,6 @@ public class User implements Serializable{
 	}
 	
 	public String tryToEnterSelectedChat(){
-		System.out.println("evalute if allowed to enter room");
 		if(loggedIn){
 			if(selectedChat!=null){
 				selectedChat.enter(this);
@@ -37,6 +35,7 @@ public class User implements Serializable{
 		}
 		return"error";
 	}
+
 	public String getName() {
 		return name;
 	}
@@ -70,5 +69,14 @@ public class User implements Serializable{
 	}
 	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	
+	public String logout(){
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "ChatLobby.xhtml?faces-redirect=true";
+	}
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }
