@@ -10,16 +10,14 @@ public class LanguageBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public String setLocaleToEn() {
+	public void setLocaleToEn() {
 		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
 		viewRoot.setLocale(new Locale("en"));
-		return "ChatLobby.xhtml?faces-redirect=true";
 	}
 
-	public String setLocaleToDe() {
+	public void setLocaleToDe() {
 		UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
 		viewRoot.setLocale(new Locale("de"));
-		return "ChatLobby.xhtml?faces-redirect=true";
 	}
 
 }
