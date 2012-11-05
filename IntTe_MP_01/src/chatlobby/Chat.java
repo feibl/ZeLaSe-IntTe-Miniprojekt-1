@@ -31,6 +31,20 @@ public class Chat implements Serializable{
 		return messages.toString();
 	}
 	
+	public String getUsersInChat(){
+		StringBuilder usersInChat = new StringBuilder();
+		usersInChat.append("<ul>");
+		for (User u : users) {
+			usersInChat.append("<li>");
+			usersInChat.append(u);
+			usersInChat.append("</li>");
+			usersInChat.append("</br>");
+		}
+		
+		usersInChat.append("</ul>");
+		return usersInChat.toString();
+	}
+	
 	public void enter(User user){
 		if (!users.contains(user)){
 			users.add(user);

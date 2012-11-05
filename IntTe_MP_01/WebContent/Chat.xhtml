@@ -11,6 +11,14 @@
 	
 <div class="chatDiv">
 <h1>Chat</h1>
+
+<h:form>
+<h:outputFormat value="#{msg.activeUsers}" ></h:outputFormat>
+<h:outputText value="#{user.selectedChat.getUsersInChat()}" escape="false" id="activeUsers"></h:outputText>
+	<p:poll interval="1"   
+            listener="#{user.selectedChat.getUsersInChat()}" update="activeUsers" />
+</h:form>
+
 <h:form name="chatForm">
 <div class="innerChat">
 		<h:outputText value="#{user.selectedChat.getChatMessages()}" escape="false" id="chatMessagesOut"></h:outputText>
