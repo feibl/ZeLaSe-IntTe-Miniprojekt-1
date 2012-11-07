@@ -18,7 +18,7 @@ public class ChatConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext context, UIComponent arg1, Object arg2) {
 		// TODO Auto-generated method stub
-		System.out.println("getASString");
+		
 		return null;
 	}
 

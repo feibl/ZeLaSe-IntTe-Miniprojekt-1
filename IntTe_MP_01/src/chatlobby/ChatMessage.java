@@ -1,9 +1,15 @@
 package chatlobby;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ChatMessage {
+public class ChatMessage implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String message;
 	private Date time;
 	private User user;
